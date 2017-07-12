@@ -1,70 +1,124 @@
 <template>
-  <div id="app">
-    <div class="container">
-      <div class="messageFlow">flow</div>
-      <div class="messagePanel">panel</div>
+  <div id="wrapper">
+    <div id="app">
+      <div class="head">
+        <div class="pic-wrapper">
+          <img class="pic" src="https://wwc.alicdn.com/avatar/getAvatar.do?userNick=aemloop&amp;width=60&amp;height=60&amp;type=sns&amp;_input_charset=UTF-8">
+        </div>
+        <div class="title">{{title}}</div>
+      </div>
+      <div class="container">
+        <div class="chat">
+          <div class="message-flow"></div>
+          <message-panel class="message-panel"></message-panel>
+        </div>
+        <div class="profile">
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import MessagePanel from './components/MessagePanel'
 
 export default {
-  name: 'app',
+  name: 'wrapper',
+  data () {
+    return {
+      title: 'aemloop'
+    }
+  },
   components: {
-    Hello
+    'message-panel': MessagePanel
   }
 }
 </script>
 
-<style>
-@font-face {
-  font-family: 'iconfont';
-  src: url('//at.alicdn.com/t/font_1462687143_9003212.eot'); /* IE9*/
-  src: url('//at.alicdn.com/t/font_1462687143_9003212.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('//at.alicdn.com/t/font_1462687143_9003212.woff') format('woff'), /* chrome、firefox */
-  url('//at.alicdn.com/t/font_1462687143_9003212.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('//at.alicdn.com/t/font_1462687143_9003212.svg#iconfont') format('svg'); /* iOS 4.1- */
-}
-
-.iconfont {
-  font-family:"iconfont" !important;
-  font-size:34px;/*px*/
-  font-style:normal;
-  color: #ccc;
-  padding-top: 2px;/*px*/
-}
-
+<style scoped>
 .container {
-  display: -webkit-flex;
+  flex: 1;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+.head {
+  width: 100%;
+  height: 72px;
+  background: #d8e7f7;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.pic {
+  width: 54px;
+  height: 54px;
+  border-radius: 4px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.title {
+
+}
+
+.chat {
+  flex: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
-.messageFlow {
+.message-flow {
   flex: 1;
+  width: 100%;
+  background-color: #d4e3f3;
 }
 
-.messagePanel {
-  height: 64px;
-  width: 750px;
-  text-align: center;
-  background: #dddddd;
+.message-panel {
+  width: 100%;
+  height: 120px;
+}
+
+.profile {
+  width: 120px;
+  height: 100%;
+  background-color: #e6f0fb;
+  border-bottom-right-radius: 8px;
 }
 
 #app {
+  width: 100%;
+  height: 100%;
+  max-height: 560px;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 16px 0 #d2d2d2;
+  border-radius: 8px;
+}
+
+#wrapper {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  width: 750px;
-  max-width: 750px;
   height: 100%;
   min-height: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>
