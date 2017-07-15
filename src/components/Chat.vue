@@ -9,9 +9,9 @@
     <div class="container">
       <div class="chat">
         <message-flow class="message-flow"></message-flow>
-        <message-panel class="message-panel"></message-panel>
+        <message-panel class="message-panel" :style="{'border-bottom-right-radius': panelBorderBottomRightRadius}"></message-panel>
       </div>
-      <div class="profile">
+      <div class="profile" :style="{'display': profileDisplay}">
       </div>
     </div>
   </div>
@@ -22,9 +22,20 @@ import MessagePanel from './MessagePanel'
 import MessageFlow from './MessageFlow'
 
 export default {
+  props: {
+    showProfile: Boolean
+  },
   data () {
     return {
       title: '泛叶'
+    }
+  },
+  computed: {
+    panelBorderBottomRightRadius () {
+      return this.showProfile ? 'initial' : 'inherit'
+    },
+    profileDisplay () {
+      return this.showProfile ? 'flex' : 'none'
     }
   },
   components: {

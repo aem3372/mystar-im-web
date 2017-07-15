@@ -38,6 +38,15 @@ textarea {
   border-top-right-radius: inherit;
 }
 
+
+textarea::-webkit-scrollbar {
+  width: 8px;
+}
+textarea::-webkit-scrollbar-thumb {
+  background-color: #bdddf4;
+  border-radius: 4px;
+}
+
 .panel {
   display: flex;
   flex-direction: column;

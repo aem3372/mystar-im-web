@@ -2,7 +2,7 @@
   <div id="conversation">
     <div id="app">
       <div class="box">
-        <chat></chat>
+        <chat :showProfile="false"></chat>
       </div>
     </div>
   </div>
@@ -36,6 +36,7 @@ export default {
   width: 100%;
   height: 100%;
   border-radius: 8px;
+  box-shadow: 0 8px 16px 0 #d2d2d2;
 }
 
 chat {

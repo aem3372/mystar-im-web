@@ -11,8 +11,17 @@
 <style scoped>
 #message-flow {
   width: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
+
+#message-flow::-webkit-scrollbar {
+  width: 8px;
+}
+#message-flow::-webkit-scrollbar-thumb {
+  background-color: #bdddf4;
+  border-radius: 4px;
+}
+
 </style>
 
 <script>
