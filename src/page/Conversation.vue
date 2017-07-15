@@ -1,7 +1,9 @@
 <<template>
-  <div id="wrapper">
+  <div id="conversation">
     <div id="app">
-      <chat></chat>
+      <div class="box">
+        <chat></chat>
+      </div>
     </div>
   </div>
 </template>
@@ -10,7 +12,6 @@
 import Chat from '../components/Chat'
 
 export default {
-  name: 'wrapper',
   components: {
     'chat': Chat
   }
@@ -31,12 +32,18 @@ export default {
   }
 }
 
+.box {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
 chat {
   width: 100%;
   height: 100%;
 }
 
-#wrapper {
+#conversation {
   height: 100%;
   min-height: 100%;
   margin: 0 auto;

@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper">
+  <div id="chat">
     <div class="head">
       <div class="pic-wrapper">
         <img class="pic" src="https://wwc.alicdn.com/avatar/getAvatar.do?userNick=aemloop&amp;width=60&amp;height=60&amp;type=sns&amp;_input_charset=UTF-8">
@@ -8,7 +8,7 @@
     </div>
     <div class="container">
       <div class="chat">
-        <div class="message-flow"></div>
+        <message-flow class="message-flow"></message-flow>
         <message-panel class="message-panel"></message-panel>
       </div>
       <div class="profile">
@@ -19,16 +19,17 @@
 
 <script>
 import MessagePanel from './MessagePanel'
+import MessageFlow from './MessageFlow'
 
 export default {
-  name: 'wrapper',
   data () {
     return {
       title: '泛叶'
     }
   },
   components: {
-    'message-panel': MessagePanel
+    'message-panel': MessagePanel,
+    'message-flow': MessageFlow
   }
 }
 </script>
@@ -39,14 +40,16 @@ export default {
   display: flex;
   width: 100%;
   flex-direction: row;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
 }
 
 .head {
   width: 100%;
   height: 72px;
   background: #d8e7f7;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -62,7 +65,6 @@ export default {
 }
 
 .title {
-
 }
 
 .chat {
@@ -71,6 +73,8 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
 }
 
 .message-flow {
@@ -82,25 +86,26 @@ export default {
 .message-panel {
   width: 100%;
   height: 150px;
-  border-bottom-left-radius: 8px;
+  border-bottom-left-radius: inherit;
 }
 
 .profile {
   width: 180px;
   height: 100%;
   background-color: #e6f0fb;
-  border-bottom-right-radius: 8px;
+  border-bottom-right-radius: inherit;
   display: none;
 }
 
-#wrapper {
+#chat {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 8px 16px 0 #d2d2d2;
-  border-radius: 8px;
+  user-select: none;
+  box-shadow: inherit;
+  border-radius: inherit;
 }
 </style>

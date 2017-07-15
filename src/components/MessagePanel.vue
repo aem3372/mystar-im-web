@@ -1,5 +1,5 @@
 <template>
-    <div class="panel">
+    <div id="message-panel">
       <div class="toolbar">
         <div class="express iconfont">&#xe7a1;</div>
         <div class="appreciate iconfont">&#xe7f4;</div>
@@ -12,7 +12,6 @@
 import InputPanel from './InputPanel'
 
 export default {
-  name: 'panel',
   components: {
     'input-panel': InputPanel
   }
@@ -29,7 +28,7 @@ export default {
   padding-left: 8px;
 }
 
-.panel {
+.message-panel {
   display: flex;
   flex-direction: column;
 }
