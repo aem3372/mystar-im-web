@@ -1,32 +1,30 @@
 <template>
   <div id="wrapper">
-    <div id="app">
-      <div class="head">
-        <div class="pic-wrapper">
-          <img class="pic" src="https://wwc.alicdn.com/avatar/getAvatar.do?userNick=aemloop&amp;width=60&amp;height=60&amp;type=sns&amp;_input_charset=UTF-8">
-        </div>
-        <div class="title">{{title}}</div>
+    <div class="head">
+      <div class="pic-wrapper">
+        <img class="pic" src="https://wwc.alicdn.com/avatar/getAvatar.do?userNick=aemloop&amp;width=60&amp;height=60&amp;type=sns&amp;_input_charset=UTF-8">
       </div>
-      <div class="container">
-        <div class="chat">
-          <div class="message-flow"></div>
-          <message-panel class="message-panel"></message-panel>
-        </div>
-        <div class="profile">
-        </div>
+      <div class="title">{{title}}</div>
+    </div>
+    <div class="container">
+      <div class="chat">
+        <div class="message-flow"></div>
+        <message-panel class="message-panel"></message-panel>
+      </div>
+      <div class="profile">
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import MessagePanel from './components/MessagePanel'
+import MessagePanel from './MessagePanel'
 
 export default {
   name: 'wrapper',
   data () {
     return {
-      title: 'aemloop'
+      title: '泛叶'
     }
   },
   components: {
@@ -69,7 +67,6 @@ export default {
 
 .chat {
   flex: 1;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -84,41 +81,26 @@ export default {
 
 .message-panel {
   width: 100%;
-  height: 120px;
+  height: 150px;
+  border-bottom-left-radius: 8px;
 }
 
 .profile {
-  width: 120px;
+  width: 180px;
   height: 100%;
   background-color: #e6f0fb;
   border-bottom-right-radius: 8px;
+  display: none;
 }
 
-#app {
+#wrapper {
   width: 100%;
   height: 100%;
-  max-height: 560px;
-  max-width: 680px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-shadow: 0 8px 16px 0 #d2d2d2;
   border-radius: 8px;
-}
-
-#wrapper {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  height: 100%;
-  min-height: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 </style>

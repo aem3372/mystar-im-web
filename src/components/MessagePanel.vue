@@ -2,7 +2,7 @@
     <div class="panel">
       <div class="toolbar">
         <div class="express iconfont">&#xe7a1;</div>
-        <div class="appreciate iconfont">&#xe7e2;</div>
+        <div class="appreciate iconfont">&#xe7f4;</div>
       </div>
       <input-panel class="input"></input-panel>
     </div>
@@ -39,6 +39,8 @@ export default {
   flex-direction: row;
   justify-content: flex-start;
   background: #dae8f8;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 }
 
 
@@ -52,6 +54,8 @@ export default {
 
 .input {
   flex: 1;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
 }
 
 </style>
