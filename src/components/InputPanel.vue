@@ -1,15 +1,32 @@
 <template>
     <div class="panel">
-      <textarea type="text" id="input-text"></textarea>
+      <textarea type="text" id="input-text" v-model="textContent"></textarea>
       <div class="operator-bar">
-        <div class="send-btn">发送</div>
+        <div class="send-btn" @click="send">发送</div>
       </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'panel'
+  name: 'panel',
+  props: {
+    messageStore: Object
+  },
+  data () {
+    return {
+      textContent: ''
+    }
+  },
+  methods: {
+    send () {
+      this.messageStore.addNewMessage({
+        direction: 'R',
+        content: this.textContent
+      })
+      this.textContent = ''
+    }
+  }
 }
 </script>
 

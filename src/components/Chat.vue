@@ -8,8 +8,8 @@
     </div>
     <div class="container">
       <div class="chat">
-        <message-flow class="message-flow"></message-flow>
-        <message-panel class="message-panel" :style="{'border-bottom-right-radius': panelBorderBottomRightRadius}"></message-panel>
+        <message-flow class="message-flow" :messageStore="messageStore"></message-flow>
+        <message-panel class="message-panel" :style="{'border-bottom-right-radius': panelBorderBottomRightRadius}" :messageStore="messageStore"></message-panel>
       </div>
       <div class="profile" :style="{'display': profileDisplay}">
       </div>
@@ -21,13 +21,16 @@
 import MessagePanel from './MessagePanel'
 import MessageFlow from './MessageFlow'
 
+import MessageStore from '../model/MessageStore.js'
+
 export default {
   props: {
     showProfile: Boolean
   },
   data () {
     return {
-      title: '泛叶'
+      title: '泛叶',
+      messageStore: new MessageStore()
     }
   },
   computed: {

@@ -1,10 +1,8 @@
 <template>
   <div id="message-flow">
-    <text-bubble :message="message1"></text-bubble>
-    <text-bubble :message="message2"></text-bubble>
-    <text-bubble :message="message2"></text-bubble>
-    <text-bubble :message="message2"></text-bubble>
-    <text-bubble :message="message2"></text-bubble>
+    <div v-for="message in messages">
+      <text-bubble :message="message"></text-bubble>
+    </div>
   </div>
 </template>
 
@@ -28,11 +26,15 @@
 import TextBubble from './message/TextBubble'
 
 export default {
+  props: {
+    messageStore: Object
+  },
   components: {
     'text-bubble': TextBubble
   },
   data () {
     return {
+      messages: this.messageStore.getRawMessages(),
       message1: {
         direction: 'R',
         content: 'content'

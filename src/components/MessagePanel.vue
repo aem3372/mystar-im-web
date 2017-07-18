@@ -4,7 +4,7 @@
         <div class="express iconfont">&#xe7a1;</div>
         <div class="appreciate iconfont">&#xe7f4;</div>
       </div>
-      <input-panel class="input"></input-panel>
+      <input-panel class="input" :messageStore="messageStore"></input-panel>
     </div>
 </template>
 
@@ -12,6 +12,9 @@
 import InputPanel from './InputPanel'
 
 export default {
+  props: {
+    messageStore: Object
+  },
   components: {
     'input-panel': InputPanel
   }
