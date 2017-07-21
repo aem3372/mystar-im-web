@@ -1,7 +1,9 @@
 <template>
   <div id="message-flow">
     <div v-for="message in messages">
-      <text-bubble :message="message"></text-bubble>
+      <bubble-layout :message="message">
+        <text-content slot="content" :message="message"></text-content>
+      </bubble-layout>
     </div>
   </div>
 </template>
@@ -23,14 +25,16 @@
 </style>
 
 <script>
-import TextBubble from './message/TextBubble'
+import BubbleLayout from './message/BubbleLayout'
+import TextContent from './message/TextContent'
 
 export default {
   props: {
     messageStore: Object
   },
   components: {
-    'text-bubble': TextBubble
+    'bubble-layout': BubbleLayout,
+    'text-content': TextContent
   },
   data () {
     return {

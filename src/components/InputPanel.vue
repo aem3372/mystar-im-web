@@ -20,8 +20,11 @@ export default {
   },
   methods: {
     send () {
+      if (this.textContent === '') {
+        return this
+      }
       this.messageStore.addNewMessage({
-        direction: 'R',
+        direction: 'S',
         content: this.textContent
       })
       this.textContent = ''

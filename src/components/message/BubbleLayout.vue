@@ -1,5 +1,5 @@
 <template>
-  <div id="text-bubble">
+  <div id="bubble-layout">
     <div v-if="message.direction === 'R'" class="left-layout">
       <div class="head">
         <img class="pic" src="https://wwc.alicdn.com/avatar/getAvatar.do?userNick=aemloop&amp;width=60&amp;height=60&amp;type=sns&amp;_input_charset=UTF-8">
@@ -9,18 +9,20 @@
         <div class="bubble">
           <div class="bubble-tail"></div>
           <div class="bubble-container">
-            <p class="text">{{message.content}}</p>
+            <slot name="content"></slot>
           </div>
         </div>
       </div>
     </div>
     <div v-else class="right-layout">
-      <div class="bubble">
-        <div class="bubble-container">
-          <p class="text">{{message.content}}</p>
+      <div class="box">
+        <div class="bubble">
+          <div class="bubble-container">
+            <slot name="content"></slot>
+          </div>
+          <div class="bubble-tail"></div>
         </div>
       </div>
-      <div class="bubble-tail"></div>
       <div class="head">
         <img class="pic" src="https://wwc.alicdn.com/avatar/getAvatar.do?userNick=aemloop&amp;width=60&amp;height=60&amp;type=sns&amp;_input_charset=UTF-8">
         </img>
@@ -31,7 +33,7 @@
 
 
 <style>
-#text-bubble {
+#bubble-layout {
   width: 100%;
 }
 
@@ -43,6 +45,10 @@
   margin-right: 12px;
 }
 
+.right-layout {
+  justify-content: flex-end;
+}
+
 .box {
   display: flex;
   flex-direction: column;
@@ -50,7 +56,7 @@
 }
 
 .bubble {
-  display: block;
+  display: flex;
   min-height: 36px;
 }
 
@@ -60,33 +66,12 @@
   border-radius:20px
 }
 
-.text {
-  font-size: 16px;
-  line-height: 20px;
-  margin: 0;
-  word-break: break-all;
-  user-select: auto;
-}
-.left-layout .bubble-tail {
-  margin-left: 6px;
-  position: relative;  
-  width:0px;  
-  height:0px;  
-  border-width:8px 14px 8px 0;  
-  border-style: solid;  
-  border-color: transparent #ffffff transparent transparent;  
-  top: 8px;  
-  left: 0px;
-}
-
-.left-layout .bubble-container {
+.bubble-container {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 16px;
   padding-right: 16px;
-  margin-top: -16px;
-  margin-left: 16px;
-  margin-right: 12px;
+  margin-top: 0px;
   max-width: 400px;
   min-height: 20px;
   background: #ffffff;
@@ -97,6 +82,45 @@
   border-radius: 12px;
 }
 
+.text {
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
+  word-break: break-all;
+  user-select: auto;
+}
+
+.left-layout .bubble-tail {
+  margin-left: 6px;
+  position: relative;  
+  width:0px;  
+  height:0px;  
+  border-width:8px 14px 8px 0;  
+  border-style: solid;  
+  border-color: transparent #ffffff transparent transparent;  
+  top: 9px;  
+  left: 2px;
+}
+
+.right-layout .bubble-tail {
+  margin-left: 6px;
+  position: relative;  
+  width:0px;  
+  height:0px;  
+  border-width:8px 0 8px 14px;  
+  border-style: solid;  
+  border-color: transparent transparent transparent #ffffff;  
+  top: 9px;  
+  left: -8px;
+}
+
+.left-layout .bubble-container {
+  margin-right: 16px;
+}
+
+.right-layout .bubble-container {
+  margin-left: 16px;
+}
 </style>
 
 <script>
