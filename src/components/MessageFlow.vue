@@ -2,7 +2,8 @@
   <div id="message-flow">
     <div v-for="message in messages">
       <bubble-layout :message="message">
-        <text-content slot="content" :message="message"></text-content>
+        <text-content v-if="message.type === 'text'" slot="content" :message="message"></text-content>
+        <grally-content v-else slot="content" :message="message"></grally-content>
       </bubble-layout>
     </div>
   </div>
@@ -27,6 +28,7 @@
 <script>
 import BubbleLayout from './message/BubbleLayout'
 import TextContent from './message/TextContent'
+import GrallyContent from './message/GrallyContent'
 
 export default {
   props: {
@@ -34,19 +36,12 @@ export default {
   },
   components: {
     'bubble-layout': BubbleLayout,
-    'text-content': TextContent
+    'text-content': TextContent,
+    'grally-content': GrallyContent
   },
   data () {
     return {
-      messages: this.messageStore.getRawMessages(),
-      message1: {
-        direction: 'R',
-        content: 'content'
-      },
-      message2: {
-        direction: 'R',
-        content: '测试消息，测试消息，注意，这是一条测试消息，测试，测试测试消息，测试消息，注意，这是一条测试消息，测试，测试测试消息，测试消息，注意，这是一条测试消息，测试，测试测试消息，测试消息，注意'
-      }
+      messages: this.messageStore.getRawMessages()
     }
   }
 }

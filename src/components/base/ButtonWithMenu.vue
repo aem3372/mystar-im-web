@@ -1,22 +1,13 @@
 <template>
-  <div id="text-content">
+  <div id="button-with-menu">
     <p class="text">{{message.content}}</p>
   </div>
 </template>
 
 
-<style scoped>
+<style>
 #text-content {
   width: 100%;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 16px;
-  padding-right: 16px;
-  max-width: 400px;
-  min-height: 20px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
 }
 
 .text {
@@ -31,7 +22,7 @@
 <script>
 export default {
   props: {
-    message: Object
+    text: String
   }
 }
 </script>

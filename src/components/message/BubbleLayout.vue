@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="head">
-        <img class="pic" src="https://wwc.alicdn.com/avatar/getAvatar.do?userNick=aemloop&amp;width=60&amp;height=60&amp;type=sns&amp;_input_charset=UTF-8">
+        <img class="pic" style="background: #88acdb">
         </img>
       </div>
     </div>
@@ -32,7 +32,7 @@
 </template>
 
 
-<style>
+<style scoped>
 #bubble-layout {
   width: 100%;
 }
@@ -67,13 +67,7 @@
 }
 
 .bubble-container {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 16px;
-  padding-right: 16px;
   margin-top: 0px;
-  max-width: 400px;
-  min-height: 20px;
   background: #ffffff;
   display: flex;
   flex-direction: row;

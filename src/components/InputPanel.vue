@@ -25,6 +25,7 @@ export default {
       }
       this.messageStore.addNewMessage({
         direction: 'S',
+        type: 'text',
         content: this.textContent
       })
       this.textContent = ''
